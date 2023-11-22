@@ -61,3 +61,8 @@ resource "aws_iam_role_policy_attachment" "log_policy_sdk_v3_test" {
   role       = aws_iam_role.sdk_v3_test.name
   policy_arn = aws_iam_policy.policy_lambda_cw_logs.arn
 }
+
+resource "aws_lambda_function_url" "function_url" {
+  function_name      = aws_lambda_function.sdk_v3_test.function_name
+  authorization_type = "NONE"
+}
