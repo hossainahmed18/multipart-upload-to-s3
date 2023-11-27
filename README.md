@@ -7,6 +7,8 @@ zip --junk-paths --quiet --recurse-paths terraform/sdk-v3-test.zip functions/sdk
 
 
 /*
+
+```
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const client = new S3Client({});
 
@@ -37,4 +39,5 @@ module.exports.index = async (event) => {
 
   return readFile(BUCKET_NAME, file);
 };
+```
 */
