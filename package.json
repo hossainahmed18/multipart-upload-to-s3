@@ -1,0 +1,14 @@
+{
+  "name": "multipart-upload-to-s3",
+  "version": "1.0.0",
+  "description": "zip command: zip --junk-paths --quiet --recurse-paths terraform/sdk-v3-test.zip functions/sdk-v3-test/*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.460.0"
+  }
+}
