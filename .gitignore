@@ -1,3 +1,4 @@
 .terraform
 .terraform.*
 *.zip
+node_modules
