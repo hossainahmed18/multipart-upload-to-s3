@@ -41,3 +41,17 @@ module.exports.index = async (event) => {
 };
 ```
 */
+
+
+```
+Running asycn function from console
+
+const getHtml = async () => {
+   await doSomeThingAsync();
+}
+(async() => {
+  console.log('1')
+  await getHtml()  
+  console.log('2')
+})()
+```
