@@ -1,4 +1,8 @@
 variable "lambda_to_deploy" {
     type = string
-    default = "sdk-v3-test"
+    default = "upload-multipart"
+}
+variable "lambda_runtime" {
+    type = string
+    default = "nodejs20.x"
 }

@@ -22,7 +22,7 @@ resource "aws_iam_role_policy_attachment" "playgroundLambda_policyAttachment_bas
 resource "aws_lambda_function" "playground" {
   function_name    = var.lambda_to_deploy
   handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  runtime          = var.lambda_runtime
   role             = aws_iam_role.playgroundLambda_role.arn
   source_code_hash = filebase64sha256("${path.module}/${var.lambda_to_deploy}.zip")
   filename         = "${path.module}/${var.lambda_to_deploy}.zip"
