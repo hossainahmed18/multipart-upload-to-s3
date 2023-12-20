@@ -4,7 +4,7 @@ const { multiPartUpload } = require('./multiPartUpload');
 
 exports.handler = async (event) => {
     const region = 'eu-north-1';
-    const bucket = '';
+    const bucket = 'eu-north-1-dev-video-test';
     const folder = 'junayed';
     const client = new S3Client({ region });
     const fileName = event.queryStringParameters?.fileName ?? "file -" + Date.now().toString();
