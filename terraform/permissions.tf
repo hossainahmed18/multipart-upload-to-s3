@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "s3_files_policy_document" {
+data "aws_iam_policy_document" "playWith_s3_policyDocument" {
   provider = aws.iam
 
   statement {
@@ -10,14 +10,14 @@ data "aws_iam_policy_document" "s3_files_policy_document" {
   }
 }
 
-resource "aws_iam_policy" "s3_files_read_policy" {
+resource "aws_iam_policy" "playWith_s3_policy" {
   provider = aws.iam
-  name     = "s3_files_policy"
-  policy   = data.aws_iam_policy_document.s3_files_policy_document.json
+  name     = "playWith_s3_policy"
+  policy   = data.aws_iam_policy_document.playWith_s3_policyDocument.json
 }
 
-resource "aws_iam_role_policy_attachment" "video_files_s3_files_read_policy_attachment" {
+resource "aws_iam_role_policy_attachment" "playWith_s3_policyAttachment" {
   provider   = aws.iam
-  role       = aws_iam_role.sdk_v3_test.name
-  policy_arn = aws_iam_policy.s3_files_read_policy.arn
+  role       = aws_iam_role.playgroundLambda_role.name
+  policy_arn = aws_iam_policy.playWith_s3_policy.arn
 }
