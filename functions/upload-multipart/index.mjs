@@ -4,7 +4,7 @@ const chunkSize = 5 * 1024 * 1024;
 
 export const handler = async (event) => {
     const region = 'eu-north-1';
-    const bucket = 'eu-north-1-dev-video-test';
+    const bucket = '';
     const folder = 'junayed/plays';
     const client = new S3Client({ region });
     const stage = event.queryStringParameters?.stage;
@@ -54,7 +54,7 @@ export const handler = async (event) => {
         }
     }
     else if (event.requestContext.http.method === "POST") {
-        const eventBody = JSON.stringify(event.body);
+        const eventBody = JSON.parse(event.body);
         if ((eventBody.fileKey && eventBody.uploadId && eventBody.parts) && eventBody.stage === "complete") {
             /*
                 doc
@@ -70,9 +70,10 @@ export const handler = async (event) => {
             */
             const multipartParams = {
                 Bucket: bucket,
-                Key: event.queryStringParameters.fileKey,
+                Key: eventBody.fileKey,
+                UploadId: eventBody.uploadId,
                 MultipartUpload: {
-                    Parts: event.body.parts
+                    Parts: eventBody.parts
                 },
             }
             const command = new CompleteMultipartUploadCommand(multipartParams);
