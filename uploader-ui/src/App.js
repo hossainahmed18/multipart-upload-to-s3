@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const App = () => {
   const [file, setFile] = useState();
-  const lambdaUrl = "https://b7exwhyhsdobgtjudhsqefsbwu0rywrd.lambda-url.eu-north-1.on.aws";
+  const lambdaUrl = "";
 
   const chunkFile = ({ chunkSize }) => {
     let startPointer = 0;
@@ -88,10 +88,12 @@ const App = () => {
     console.log(uploadPartsResponse);
     console.log(completeResponse);
   }
+/*
+  This one is just for quick test a bucket
 
   const uploadSingleFileWithPutObject = async () => {
     try {
-      const lambdaUrl = "https://f3dwyifjqpehfy7njso2beibpm0ezypw.lambda-url.eu-north-1.on.aws";
+      const lambdaUrl = "";
 
       const response = await fetch(lambdaUrl, {
         method: "GET",
@@ -117,7 +119,7 @@ const App = () => {
       console.log(error);
     }
   }
-
+*/
   return (
     <div className="App" style={{ padding: '5%' }}>
       <input type="file" onChange={(event) => setFile(event.target.files[0])}></input>
