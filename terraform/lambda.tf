@@ -61,4 +61,9 @@ resource "aws_iam_role_policy_attachment" "playgroundLambda_policyAttachment_cwL
 resource "aws_lambda_function_url" "playgroundLambda_functionUrl" {
   function_name      = aws_lambda_function.playground.function_name
   authorization_type = "NONE"
+  cors {
+    allow_origins     = ["*"]
+    allow_methods     = ["*"]
+    allow_headers     = ["*"]
+  }
 }
