@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const App = () => {
   const [file, setFile] = useState();
-  const lambdaUrl = "";
+  const lambdaUrl = "https://xgfygzozdrsg67nekjkk6kswmy0enuut.lambda-url.eu-north-1.on.aws";
 
   const chunkFile = ({ chunkSize }) => {
     let startPointer = 0;
