@@ -13,8 +13,8 @@ const multiPartUpload = async ({ folder, fileName, client, bucket, body }) => {
         parallelUploads3.on("httpUploadProgress", (progress) => {
             console.log(progress);
         });
-        await parallelUploads3.done();
-        return { status: 200, message: 'done'}
+        const result = await parallelUploads3.done();
+        return { status: 200, message: result}
     } catch (e) {
         console.log(e);
         return { status: 500, message: 'error'}
